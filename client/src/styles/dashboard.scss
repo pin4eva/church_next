@@ -1,0 +1,55 @@
+#dashboard-layout {
+  display: grid;
+  min-height: 100vmin;
+  background-color: #eef2fa;
+  grid-template-columns: 15rem 1fr;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+  .left-aside {
+    background-color: lighten($color: $primary, $amount: 15);
+    color: whitesmoke;
+    transition: display 0.5s ease-in-out;
+    @media screen and (max-width: 768px) {
+      display: none;
+      transition: display 0.5s ease-in-out;
+    }
+  }
+  .right-aside {
+    display: none;
+    @media screen and (min-width: 768px) {
+      width: 100%;
+      max-width: 15rem;
+      display: block;
+    }
+  }
+  main {
+    .main-container {
+      margin-top: 1rem;
+      display: flex;
+      .main-left {
+        flex: 1;
+      }
+    }
+  }
+
+  .left-aside,
+  main {
+    grid-row: 1/2;
+  }
+
+  // @media screen and (max-width: 768px) {
+
+  // }
+  .card {
+    border-radius: 0.7rem;
+    background-color: white;
+    padding: 0.7rem 1rem;
+    border: none;
+  }
+  button,
+  .btn {
+    padding: 0.8rem 2rem !important;
+    font-weight: 400;
+  }
+}

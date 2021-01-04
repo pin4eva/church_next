@@ -1,0 +1,22 @@
+/* .form-wrapper {
+  @media screen and (min-width: 768px) {
+    background-color: red;
+  display: subgrid;
+    grid-template-columns: 1fr 30%;
+    .contact-form {
+      background-color: blue;
+      grid-column: 1/4;
+    }
+  }
+} */
+
+/* .contact_us .form-wrapper {
+  display: subgrid;
+  background-color: aquamarine;
+}
+
+.contact_us .contact-form {
+  display: subgrid;
+  grid-column: 1/4;
+  background-color: blueviolet;
+} */

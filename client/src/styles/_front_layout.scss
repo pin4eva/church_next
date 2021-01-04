@@ -1,0 +1,14 @@
+#front_layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  header {
+    font-family: Montserrat;
+    background: #00050b;
+    color: #fff;
+  }
+  main {
+    flex-grow: 1;
+  }
+}

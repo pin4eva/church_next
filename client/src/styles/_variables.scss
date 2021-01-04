@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$primary: #030ce0 !default;
+$secondary: #f76800 !default;
+$gray: #c4c4c4;
+$gray3: #828282;
+$muted: #f2f2f2;
+$light-purple: #ccceff;
+// $success: $green !default;
+// $info: $cyan !default;
+// $warning: $yellow !default;
+// $danger: $red !default;
+// $light: $gray-100 !default;
+// $dark: $gray-800 !default;
+
+// $primary-color: #030ce0 !default;
+// $primary-color-dark: darken($primary-color, 3%) !default;
+// $primary-color-light: lighten($primary-color, 3%) !default;
+// $secondary-color: #f76800 !default;
+// $secondary-color-dark: darken($secondary-color, 3%) !default;
+// $secondary-color-light: lighten($secondary-color, 3%) !default;
+
+$font-family: Montserrat;
+
+*,
+html {
+  font-family: Montserrat !important;
+  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: $font-family;
+  font-size: 90% !important;
+}
+
+button,
+.btn {
+  padding: 0.375rem 0.75rem !important;
+  outline: none !important;
+}
+
+.bg-gray {
+  background-color: $gray3;
+}
