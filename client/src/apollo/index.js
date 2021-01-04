@@ -19,8 +19,11 @@ if (process.browser) {
   global.fetch = fetch;
 }
 
-const WS_URI = process.env.WS_URL || "ws://localhost:8000/api/graphql";
-const HTTP_URI = process.env.SERVER_URL || "http://localhost:8000/api/graphql";
+const WS_URI =
+  `${process.env.WS_URL}/api/graphql` || "ws://localhost:8000/api/graphql";
+const HTTP_URI =
+  `${process.env.SERVER_URL}/api/graphql` ||
+  "http://localhost:8000/api/graphql";
 
 const createLink = (initialState, t) => {
   const httpLink = createHttpLink({
