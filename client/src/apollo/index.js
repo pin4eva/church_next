@@ -20,10 +20,13 @@ if (process.browser) {
 }
 
 const WS_URI =
-  `${process.env.WS_URL}/api/graphql` || "ws://localhost:8000/api/graphql";
+  process.env.NODE_ENV === "production"
+    ? `ws://jointheirs-server-724077.us1.kinto.io/api/graphql`
+    : "ws://localhost:8000/api/graphql";
 const HTTP_URI =
-  `${process.env.SERVER_URL}/api/graphql` ||
-  "http://localhost:8000/api/graphql";
+  process.env.NODE_ENV === "production"
+    ? `https://jointheirs-server-724077.us1.kinto.io/api/graphql`
+    : "http://localhost:8000/api/graphql";
 
 const createLink = (initialState, t) => {
   const httpLink = createHttpLink({
