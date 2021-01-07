@@ -12,7 +12,7 @@ import { NextPageContext } from "next";
 import { useMemo } from "react";
 import { getTokenCookie, TOKEN_NAME } from "utils/cookieUtils";
 
-let apolloClient = null;
+let apolloClient: ApolloClient<unknown>;
 const token = jscookie.get(TOKEN_NAME) || "";
 
 if (process.browser) {
@@ -28,7 +28,10 @@ const HTTP_URI =
     ? `https://jointheirs-server-724077.us1.kinto.io/api/graphql`
     : "http://localhost:8000/api/graphql";
 
-const createLink = (initialState, t) => {
+// const WS_URI = "ws://localhost:8000/api/graphql";
+// const HTTP_URI = "http://localhost:8000/api/graphql";
+
+const createLink = (initialState: any, t: string) => {
   const httpLink = createHttpLink({
     uri: HTTP_URI,
     credentials: "same-origin",
@@ -77,7 +80,10 @@ const createLink = (initialState, t) => {
   });
 };
 
-export const initializeApollo = (initialState, ctx) => {
+export const initializeApollo = (
+  initialState: unknown,
+  ctx?: NextPageContext
+): ApolloClient<unknown> => {
   const cookie = getTokenCookie(ctx?.req);
   if (!process.browser) {
     return createLink(initialState, cookie);
@@ -89,7 +95,23 @@ export const initializeApollo = (initialState, ctx) => {
   return apolloClient;
 };
 
-export const useApollo = (initialState) => {
+export const useApollo = (initialState: unknown): unknown => {
   const store = useMemo(() => initializeApollo(initialState), [initialState]);
   return store;
 };
+
+// export const connectApollo = (ctx: NextPageContext): ((initialState: any, t?: string) => any) => {
+//   const cookie = getTokenCookie(ctx?.req)
+//   const init = (initialState) => {
+//     if (!process.browser) {
+//       return createLink(initialState, cookie);
+//     }
+//     if (!apolloClient) {
+//       apolloClient = createLink(initialState, cookie);
+//     }
+
+//     return apolloClient;
+//   };
+
+//   return init;
+// };

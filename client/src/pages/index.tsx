@@ -1,19 +1,20 @@
 import { ArrowDownward } from "@material-ui/icons";
-import { SermonAtom } from "atoms/sermonAtom";
 import HomeBanner from "components/home/BannerSlides";
 import ContactComp from "components/home/ContactComp";
+import { NextPage, NextPageContext } from "next";
+import PropTypes from "prop-types";
 import React from "react";
-// import Menu from "../components/Menu";
-import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { Grid } from "theme-ui";
+import { initializeApollo } from "../apollo";
+import { GET_SERMONS } from "../apollo/queries/sermonQuery";
 import AboutSection from "../components/home/AboutSection";
 import RecentSermon from "../components/home/RecentSermon";
 import Front from "../layout/Front";
 import { fellowshipCards } from "../utils/home";
 
-const HomePage = () => {
-  const sermons = useRecoilValue(SermonAtom);
+const HomePage: NextPage = ({ sermons }) => {
+  // const sermons = useRecoilValue(SermonAtom);
 
   return (
     <Front>
@@ -113,6 +114,10 @@ const HomePage = () => {
   );
 };
 
+HomePage.propTypes = {
+  sermons: PropTypes.array,
+};
+
 const Wrapper = styled.section`
   font-family: Montserrat;
   overflow-x: hidden;
@@ -148,3 +153,18 @@ const Wrapper = styled.section`
   }
 `;
 export default HomePage;
+
+HomePage.getInitialProps = async (ctx: NextPageContext) => {
+  const apollo = initializeApollo(null, ctx);
+  try {
+    const { data } = await apollo.query({
+      query: GET_SERMONS,
+    });
+    const sermons = data?.getSermons;
+
+    return { sermons };
+  } catch (error) {
+    console.log(error);
+    return { sermons: null };
+  }
+};

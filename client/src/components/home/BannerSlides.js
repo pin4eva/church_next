@@ -14,7 +14,8 @@ const HomeBanner = ({ sermons }) => {
         <div className="text-content">
           {sermons.slice(0, 3).map((sermon, i) => (
             <div className="wrapper" key={i}>
-              <AnimatePresence exitBeforeEnter>
+              {/* <WithAnimateCss sermon={sermon} /> */}
+              <AnimatePresence>
                 {index === i && <BannerSlideText sermon={sermon} />}
               </AnimatePresence>
             </div>
@@ -143,4 +144,41 @@ export const BannerSlideText = ({ sermon }) => {
 
 BannerSlideText.propTypes = {
   sermon: PropTypes.object,
+};
+
+const WithAnimateCss = ({ sermon }) => {
+  return (
+    <div className="single-carousel">
+      <div className="latest_sermon bg-gray">Latest Sermon</div>
+      <h1 className=" display-3  ">{sermon.topic}</h1>
+      <ul>
+        <li>
+          <Link href="/sermons/[slugs]" as={`/sermons/${sermon.slug}`}>
+            <a className="btn btn-primary mr-2">
+              <Videocam />
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/sermons/[slugs]" as={`/sermons/${sermon.slug}`}>
+            <a className="btn btn-primary mr-2">
+              <Mic />
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/sermons/[slugs]" as={`/sermons/${sermon.slug}`}>
+            <a className="btn btn-primary mr-2">
+              <LocalLibrary />
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/sermons">
+            <a className="btn btn-outline-light">View More</a>
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
 };

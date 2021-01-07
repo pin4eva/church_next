@@ -4,7 +4,7 @@ export default {
   Query: {
     getSermons: async (): Promise<SermonI[]> => {
       try {
-        const sermons = await Sermon.find().sort({ createdAt: -1 });
+        const sermons = await Sermon.find().limit(5).sort({ createdAt: -1 });
         return sermons;
       } catch (error) {
         throw new Error(error);
