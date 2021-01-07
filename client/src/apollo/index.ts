@@ -95,7 +95,7 @@ export const initializeApollo = (
   return apolloClient;
 };
 
-export const useApollo = (initialState: unknown): unknown => {
+export const useApollo = (initialState) => {
   const store = useMemo(() => initializeApollo(initialState), [initialState]);
   return store;
 };

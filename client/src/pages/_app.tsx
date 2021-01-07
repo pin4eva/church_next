@@ -12,7 +12,6 @@ import { RecoilRoot, useSetRecoilState } from "recoil";
 import { ThemeProvider as StyledProvider } from "styled-components";
 import "styles/index.scss";
 import "styles/style.css";
-
 import { ThemeProvider } from "theme-ui";
 import theme from "../theme";
 
@@ -28,10 +27,14 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => Nprogress.done());
 Router.events.on("routeChangeError", () => Nprogress.done());
 
-const MyApp = ({ Component, pageProps }) => {
+// interface PageProps {
+//   apollo: ApolloClient<any>;
+// }
+
+const MyApp = ({ Component, pageProps }): JSX.Element => {
   const apolloClient = useApollo(pageProps.apollo);
   return (
-    <>
+    <Fragment>
       <Head>
         <meta
           name="description"
@@ -59,7 +62,7 @@ const MyApp = ({ Component, pageProps }) => {
           </ThemeProvider>
         </RecoilRoot>
       </ApolloProvider>
-    </>
+    </Fragment>
   );
 };
 
