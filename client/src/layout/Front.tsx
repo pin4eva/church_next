@@ -5,21 +5,21 @@ import Head from "next/head";
 import styled from "styled-components";
 import FrontFooter from "../components/FrontFooter";
 
-const Front = ({ children }) => {
+const Front = (props: { children: React.ReactNode }): JSX.Element => {
   return (
     <Fragment>
       <Head>
-        {/* <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-        /> */}
-        <title>JHAI</title>
+        <meta
+          name="description"
+          content="Connecting you to your divine heritage in Christ"
+        />
+        <title>Joint Heirs Assembly International</title>
       </Head>
       <Wrapper id="front_layout">
         <header>
           <FrontHeader />
         </header>
-        <main>{children}</main>
+        <main>{props.children}</main>
         <FrontFooter />
       </Wrapper>
     </Fragment>

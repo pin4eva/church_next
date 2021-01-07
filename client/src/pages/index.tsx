@@ -3,7 +3,7 @@ import HomeBanner from "components/home/BannerSlides";
 import ContactComp from "components/home/ContactComp";
 import { NextPage, NextPageContext } from "next";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 import { Grid } from "theme-ui";
 import { initializeApollo } from "../apollo";
@@ -13,7 +13,8 @@ import RecentSermon from "../components/home/RecentSermon";
 import Front from "../layout/Front";
 import { fellowshipCards } from "../utils/home";
 
-const HomePage: NextPage = ({ sermons }) => {
+const HomePage = ({ sermons }): JSX.Element => {
+  // const sermons = props?.sermons;
   // const sermons = useRecoilValue(SermonAtom);
 
   return (

@@ -2,6 +2,7 @@ import { ApolloProvider, useQuery } from "@apollo/client";
 import { useApollo } from "apollo";
 import { GET_SERMONS } from "apollo/queries/sermonQuery";
 import { SermonAtom } from "atoms/sermonAtom";
+import { NextPage } from "next";
 import Head from "next/head";
 import Router from "next/router";
 import Nprogress from "nprogress";
@@ -27,10 +28,6 @@ Router.events.on("routeChangeStart", () => {
 Router.events.on("routeChangeComplete", () => Nprogress.done());
 Router.events.on("routeChangeError", () => Nprogress.done());
 
-// interface PageProps {
-//   apollo: ApolloClient<any>;
-// }
-
 const MyApp = ({ Component, pageProps }): JSX.Element => {
   const apolloClient = useApollo(pageProps.apollo);
   return (
@@ -38,7 +35,7 @@ const MyApp = ({ Component, pageProps }): JSX.Element => {
       <Head>
         <meta
           name="description"
-          content="Offical website of Joint Heirs Assembly International"
+          content="Connecting you to your divine heritage in Christ"
         />
         <meta name="yandex-verification" content="fc47c63745224a52" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,9 +52,9 @@ const MyApp = ({ Component, pageProps }): JSX.Element => {
           <ThemeProvider theme={theme}>
             <StyledProvider theme={theme}>
               {/* <GlobalStyles /> */}
-              <PageLayout>
-                <Component {...pageProps} />
-              </PageLayout>
+              <Component {...pageProps} />
+              {/* <PageLayout>
+              </PageLayout> */}
             </StyledProvider>
           </ThemeProvider>
         </RecoilRoot>
@@ -73,28 +70,19 @@ MyApp.propTypes = {
 
 export default MyApp;
 
-export const PageLayout = ({ children }) => {
-  const { data: sermonData } = useQuery(GET_SERMONS);
-  const setSermons = useSetRecoilState(SermonAtom);
+// export const PageLayout: React.FC = (props): JSX.Element => {
+//   const { data: sermonData } = useQuery(GET_SERMONS);
+//   const setSermons = useSetRecoilState(SermonAtom);
 
-  // const [user, setUser] = useRecoilState(UserAtom);
+//   useEffect(() => {
+//     if (sermonData?.getSermons) {
+//       setSermons(sermonData.getSermons);
+//     }
+//   }, [sermonData]);
 
-  // useEffect(() => {
-  //   const getAuthFunc = async () => {
-  //     const data = await getAuth();
-  //     console.log(data);
-  //   };
-  //   getAuthFunc();
-  // }, []);
-  useEffect(() => {
-    if (sermonData?.getSermons) {
-      setSermons(sermonData.getSermons);
-    }
-  }, [sermonData]);
+//   return <Fragment>{props.children}</Fragment>;
+// };
 
-  return <Fragment>{children}</Fragment>;
-};
-
-PageLayout.propTypes = {
-  children: PropTypes.any,
-};
+// PageLayout.propTypes = {
+//   children: PropTypes.any,
+// };
