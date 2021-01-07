@@ -52,9 +52,9 @@ const MyApp = ({ Component, pageProps }): JSX.Element => {
           <ThemeProvider theme={theme}>
             <StyledProvider theme={theme}>
               {/* <GlobalStyles /> */}
-              <Component {...pageProps} />
-              {/* <PageLayout>
-              </PageLayout> */}
+              <PageLayout>
+                <Component {...pageProps} />
+              </PageLayout>
             </StyledProvider>
           </ThemeProvider>
         </RecoilRoot>
@@ -70,19 +70,19 @@ MyApp.propTypes = {
 
 export default MyApp;
 
-// export const PageLayout: React.FC = (props): JSX.Element => {
-//   const { data: sermonData } = useQuery(GET_SERMONS);
-//   const setSermons = useSetRecoilState(SermonAtom);
+export const PageLayout: React.FC = (props): JSX.Element => {
+  const { data: sermonData } = useQuery(GET_SERMONS);
+  const setSermons = useSetRecoilState(SermonAtom);
 
-//   useEffect(() => {
-//     if (sermonData?.getSermons) {
-//       setSermons(sermonData.getSermons);
-//     }
-//   }, [sermonData]);
+  useEffect(() => {
+    if (sermonData?.getSermons) {
+      setSermons(sermonData.getSermons);
+    }
+  }, [sermonData]);
 
-//   return <Fragment>{props.children}</Fragment>;
-// };
+  return <Fragment>{props.children}</Fragment>;
+};
 
-// PageLayout.propTypes = {
-//   children: PropTypes.any,
-// };
+PageLayout.propTypes = {
+  children: PropTypes.any,
+};
