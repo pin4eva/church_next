@@ -3,12 +3,6 @@ $md: 768px;
 
 #home_page {
   width: 100%;
-  // display: grid;
-  // grid-template-rows: 1fr;
-  // height: 100% !important;
-  // background-color: $light-purple;
-  // min-width: 100%;
-
   .hero-section {
     background: url("/preaching.png") no-repeat;
     height: 70vmin;
@@ -84,19 +78,19 @@ $md: 768px;
 
   .testimony {
     height: 100%;
-
+    // background-color: green;
     padding: 3rem 0;
+    display: flex;
+    justify-content: center;
     .wrapper {
       width: 100%;
       max-width: 860px;
       justify-content: center;
       align-items: center;
-      .image {
-        flex: 1;
-      }
-      .text_content {
-        flex: 3;
-      }
+      // background-color: red;
+      display: flex;
+      align-items: center;
+
       @media screen and (max-width: 768px) {
         flex-direction: column;
         .text_content {

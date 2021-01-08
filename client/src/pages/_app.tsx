@@ -2,7 +2,6 @@ import { ApolloProvider, useQuery } from "@apollo/client";
 import { useApollo } from "apollo";
 import { GET_SERMONS } from "apollo/queries/sermonQuery";
 import { SermonAtom } from "atoms/sermonAtom";
-import { NextPage } from "next";
 import Head from "next/head";
 import Router from "next/router";
 import Nprogress from "nprogress";

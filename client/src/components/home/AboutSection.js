@@ -42,7 +42,7 @@ const AboutSection = () => {
                   </ul>
                 </div>
               </div>
-              <div className=" image_area">
+              <div className=" image_area d-none d-md-block">
                 <img src="/daddynmummy.jpg" alt="about" />
               </div>
             </div>
@@ -69,7 +69,8 @@ const Wrapper = styled.div`
 
       .text-content {
         height: 100%;
-        width: 568px;
+        width: 100%;
+        max-width: 568px;
         display: flex;
         flex-direction: column;
         align-items: center;

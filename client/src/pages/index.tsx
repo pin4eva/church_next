@@ -12,6 +12,7 @@ import AboutSection from "../components/home/AboutSection";
 import RecentSermon from "../components/home/RecentSermon";
 import Front from "../layout/Front";
 import { fellowshipCards } from "../utils/home";
+import Image from "next/image";
 
 const HomePage = ({ sermons }): JSX.Element => {
   // const sermons = props?.sermons;
@@ -78,33 +79,30 @@ const HomePage = ({ sermons }): JSX.Element => {
           </div>
         </section>
         <section className="testimony">
-          <div className="container">
-            <div className="wrapper d-flex m-auto ">
-              <div className="image ">
-                <img
-                  src="/onyi.jpeg"
-                  alt=""
-                  style={{ width: "196px", height: "196px" }}
-                  className="rounded-pill"
-                />
-              </div>
-              <div className="text_content">
-                <p>
-                  I want to testify what God did for me,it all started December
-                  4th, 2020 when I felt sick, I bled in my brain and pass out. I
-                  was rushed to the hospital unconscious and I thought I was
-                  dead but God had mercy on me and brought me back. Such thing
-                  when it happened to some people they either become paralyzed
-                  or they died instantly during that time I was in the hospital
-                  thinking am gone my daddy (Apostle Edirhin Eta) prayed for me
-                  and I became well again and now am completely heal, am not
-                  paralyzed nor dead, no more headache or pain. So I came back
-                  to say there's God in Joint heirs Assembly, glory to God.
-                </p>
-                <p>
-                  <strong>Onyinyechi Oboh</strong>
-                </p>
-              </div>
+          <div className="wrapper ">
+            <img
+              src="/onyi.jpeg"
+              alt=""
+              height="190"
+              width="190"
+              className="rounded-pill"
+            />
+            <div className="text_content ml-0 ml-md-3 text-center mt-3 mt-md-0">
+              <p className="">
+                I want to testify what God did for me,it all started December
+                4th, 2020 when I felt sick, I bled in my brain and pass out. I
+                was rushed to the hospital unconscious and I thought I was dead
+                but God had mercy on me and brought me back. Such thing when it
+                happened to some people they either become paralyzed or they
+                died instantly during that time I was in the hospital thinking
+                am gone my daddy (Apostle Edirhin Eta) prayed for me and I
+                became well again and now am completely heal, am not paralyzed
+                nor dead, no more headache or pain. So I came back to say
+                there's God in Joint heirs Assembly, glory to God.
+              </p>
+              <p>
+                <strong>Onyinyechi Oboh</strong>
+              </p>
             </div>
           </div>
         </section>
